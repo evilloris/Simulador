@@ -153,7 +153,7 @@
                     const menuItem = document.createElement('div');
                     menuItem.className = 'faculty-menu-item';
                     menuItem.textContent = carrera;
-                    menuItem.onclick = () => showFacultyData(key);
+                    menuItem.onclick = () => window.location.href = `${key}.html?view=info`;
                     menu.appendChild(menuItem);
                 });
                 
