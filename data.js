@@ -23,8 +23,8 @@ const facultades = {
             "Información y Control de Gestión"
         ],
         coordenadas: {
-            lat: -17.7764025443528,
-            lng: -63.19666129217552
+            lat: -17.77467441129424,
+            lng: -63.19361111616988
         }
     },
 
@@ -39,8 +39,8 @@ const facultades = {
             "Ingeniería Financiera"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.77638730030238,
+            lng: -63.19667730054031
         }
     },
 
@@ -58,8 +58,8 @@ const facultades = {
             "Ingeniería de Control de Procesos"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.77545006158933,
+            lng: -63.19570013774864
         }
     },
 
@@ -71,8 +71,8 @@ const facultades = {
             "Farmacia"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.77454093371605,
+            lng: -63.197709030767605
         }
     },
 
@@ -86,8 +86,8 @@ const facultades = {
             "Trabajo Social"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.776204453799114,
+            lng: -63.19790400090499
         }
     },
 
@@ -98,8 +98,8 @@ const facultades = {
             "Medicina Veterinaria y Zootecnia"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.77677852291199,
+            lng: -63.19479143931984
         }
     },
 
@@ -112,8 +112,8 @@ const facultades = {
             "Odontología"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.775107069338425,
+            lng: -63.19757221314987
         }
     },
 
@@ -144,8 +144,8 @@ const facultades = {
             "Sociología"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.77006406616737,
+            lng: -63.19204089093866
         }
     },
 
@@ -159,8 +159,8 @@ const facultades = {
             "Ingeniería en Sistemas"
         ],
         coordenadas: {
-            lat: -17.7833,
-            lng: -63.1833
+            lat: -17.776218797604944,
+            lng: -63.195075166561
         }
     }
 };
