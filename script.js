@@ -54,6 +54,7 @@ function searchCarreras() {
                 <div class="search-result-item">
                     <h4>${facultad.nombre}</h4>
                     ${carrerasMatch.length > 0 ? `<p>${carrerasMatch.join(', ')}</p>` : ''}
+                    <p><strong>Ubicación:</strong> ${facultad.coordenadas.lat}, ${facultad.coordenadas.lng}</p>
                 </div>
             `;
         }
@@ -151,7 +152,6 @@ function showFacultyData(facultyKey) {
         <div class="faculty-info-container">
             <h3>${facultad.nombre}</h3>
             <p><strong>Sigla:</strong> ${facultad.sigla}</p>
-            <p><strong>Ciudad:</strong> ${facultad.ciudad}</p>
             
             <h4>Carreras Disponibles:</h4>
             <ul class="carreras-list">
