@@ -178,6 +178,16 @@ function showFacultyData(facultyKey) {
 function initMap(coordenadas) {
     const mapDiv = document.getElementById('map');
     if (!mapDiv) return;
+
+    if (typeof google === 'undefined' || !google.maps) {
+        mapDiv.innerHTML = `
+            <div class="map-fallback">
+                <p>El mapa no está disponible sin una clave válida de Google Maps.</p>
+                <p>Coordenadas: ${coordenadas.lat}, ${coordenadas.lng}</p>
+            </div>
+        `;
+        return;
+    }
     
     const map = new google.maps.Map(mapDiv, {
         zoom: 15,
