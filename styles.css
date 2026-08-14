@@ -508,6 +508,26 @@ h2 {
     margin: 15px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--yellow-border);
+    overflow: hidden;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.map-fallback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #f4f7fb;
+    color: #333;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
 }
 
 .materias-empty {

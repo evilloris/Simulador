@@ -174,30 +174,31 @@ function showFacultyData(facultyKey) {
     initMap(facultad.coordenadas);
 }
 
-// Initialize Google Map
+// Initialize map
 function initMap(coordenadas) {
     const mapDiv = document.getElementById('map');
     if (!mapDiv) return;
 
-    if (typeof google === 'undefined' || !google.maps) {
+    if (typeof L === 'undefined') {
         mapDiv.innerHTML = `
             <div class="map-fallback">
-                <p>El mapa no está disponible sin una clave válida de Google Maps.</p>
+                <p>El mapa no está disponible en este momento.</p>
                 <p>Coordenadas: ${coordenadas.lat}, ${coordenadas.lng}</p>
             </div>
         `;
         return;
     }
-    
-    const map = new google.maps.Map(mapDiv, {
-        zoom: 15,
-        center: coordenadas
-    });
-    
-    new google.maps.Marker({
-        position: coordenadas,
-        map: map
-    });
+
+    const map = L.map(mapDiv, {
+        zoomControl: true,
+        scrollWheelZoom: true
+    }).setView([coordenadas.lat, coordenadas.lng], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([coordenadas.lat, coordenadas.lng]).addTo(map);
 }
 
 // Load últimos intentos
