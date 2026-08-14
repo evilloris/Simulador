@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador - Facultad de Ciencias de la Salud Humana</title>
+    <link rel="stylesheet" href="faculty-styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDummyKeyForTesting"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h2>Menú</h2>
+            <button class="close-btn" onclick="toggleSidebar()">✕</button>
+        </div>
+
+        <!-- Search Section -->
+        <div class="sidebar-section">
+            <h3>🔍 Buscar Carrera</h3>
+            <input type="text" id="searchInput" placeholder="Escribe carrera o facultad...">
+            <div id="searchResults"></div>
+        </div>
+
+        <!-- Faculty Data Section -->
+        <div class="sidebar-section">
+            <h3>📍 Datos de Facultades</h3>
+            <div id="facultyButtons"></div>
+            <div id="facultyData"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="header-with-menu">
+                <a href="index.html" class="back-btn">← Volver</a>
+                <button class="menu-btn" onclick="toggleSidebar()">☰ Menú</button>
+            </div>
+            <h1>Facultad de Ciencias de la Salud Humana</h1>
+            <div class="content">
+                <p>Contenido del simulador de examen para la Facultad de Ciencias de la Salud Humana.</p>
+                <p>Este espacio está reservado para las preguntas y actividades de práctica.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Generate faculty buttons with expandable menus
+        window.addEventListener('DOMContentLoaded', function() {
+            const facultyButtonsDiv = document.getElementById('facultyButtons');
+            for (const [key, facultad] of Object.entries(facultades)) {
+                // Create button
+                const btn = document.createElement('button');
+                btn.className = 'faculty-data-btn';
+                btn.textContent = facultad.sigla + ' ▼';
+                btn.onclick = () => toggleFacultyMenu(key);
+                facultyButtonsDiv.appendChild(btn);
+                
+                // Create expandable menu
+                const menu = document.createElement('div');
+                menu.id = `menu-${key}`;
+                menu.className = 'faculty-menu';
+                
+                const menuItem1 = document.createElement('div');
+                menuItem1.className = 'faculty-menu-item';
+                menuItem1.textContent = '✎ Simulación de Examen';
+                menuItem1.onclick = () => window.location.href = `${key}.html`;
+                
+                const menuItem2 = document.createElement('div');
+                menuItem2.className = 'faculty-menu-item';
+                menuItem2.textContent = 'ℹ️ Información de la Facultad';
+                menuItem2.onclick = () => showFacultyData(key);
+                
+                menu.appendChild(menuItem1);
+                menu.appendChild(menuItem2);
+                facultyButtonsDiv.appendChild(menu);
+            }
+            
+            // Setup search
+            document.getElementById('searchInput').addEventListener('keyup', searchCarreras);
+        });
+    </script>
+</body>
+</html>

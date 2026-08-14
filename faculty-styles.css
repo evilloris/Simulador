@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #0066cc;
+    --dark-blue: #003d99;
+    --yellow-border: #FFD700;
+    --accent-red: #E63946;
+    --light-gray: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0066cc 0%, #003d99 100%);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: #1a1f36;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    border-right: 3px solid var(--yellow-border);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--yellow-border);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5em;
+    color: var(--yellow-border);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--accent-red);
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-section h3 {
+    color: var(--yellow-border);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--yellow-border);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    background: #2a2f48;
+    color: white;
+}
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+#searchResults {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--accent-red);
+}
+
+.search-result-item h4 {
+    margin-bottom: 5px;
+}
+
+.search-result-item a {
+    color: var(--yellow-border);
+    text-decoration: none;
+}
+
+.search-result-item a:hover {
+    text-decoration: underline;
+    color: var(--accent-red);
+}
+
+.search-result-item p {
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+
+#facultyData {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.faculty-data-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(0, 102, 204, 0.2);
+    border: 2px solid var(--yellow-border);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.faculty-data-btn:hover {
+    background: rgba(0, 102, 204, 0.4);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Faculty menu items */
+.faculty-menu {
+    display: none;
+    background: rgba(0, 102, 204, 0.1);
+    border-left: 3px solid var(--accent-red);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.faculty-menu.active {
+    display: block;
+}
+
+.faculty-menu-item {
+    padding: 12px 15px;
+    color: var(--yellow-border);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.faculty-menu-item:last-child {
+    border-bottom: none;
+}
+
+.faculty-menu-item:hover {
+    background: rgba(255, 215, 0, 0.1);
+    padding-left: 20px;
+    color: var(--accent-red);
+}
+
+/* Main container */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--yellow-border);
+}
+
+.header-with-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: 2px solid var(--yellow-border);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.menu-btn:hover {
+    background: var(--dark-blue);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+h1 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5em;
+    flex: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-right: auto;
+    border: 2px solid var(--yellow-border);
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: var(--accent-red);
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+}
+
+.content {
+    margin-top: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Faculty info */
+.faculty-info-container {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--yellow-border);
+    margin-top: 20px;
+}
+
+.faculty-info-container h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.faculty-info-container h4 {
+    color: var(--accent-red);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.carreras-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.carreras-list li {
+    padding: 8px 0;
+    color: #333;
+    border-bottom: 1px solid var(--yellow-border);
+}
+
+.carreras-list li:last-child {
+    border-bottom: none;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--yellow-border);
+}
+
+.map-coords {
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .close-btn {
+        display: block;
+    }
+    
+    #sidebar {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .header-with-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    h1 {
+        flex: 1;
+        margin: 10px 0;
+    }
+    
+    .back-btn,
+    .menu-btn {
+        width: 100%;
+    }
+}
