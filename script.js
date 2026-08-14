@@ -100,7 +100,6 @@ function renderFacultyPage() {
                     <span class="faculty-badge">${facultad.sigla}</span>
                 </div>
                 <h2>${facultad.nombre}</h2>
-                <p><strong>Ciudad:</strong> ${facultad.ciudad}</p>
 
                 <section>
                     <h3>Carreras disponibles</h3>
