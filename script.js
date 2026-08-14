@@ -52,8 +52,8 @@ function searchCarreras() {
             found = true;
             html += `
                 <div class="search-result-item">
-                    <h4><a href="${key}.html?view=info">${facultad.nombre}</a></h4>
-                    ${carrerasMatch.length > 0 ? `<p>Carreras encontradas: ${carrerasMatch.join(', ')}</p>` : ''}
+                    <h4>${facultad.nombre}</h4>
+                    ${carrerasMatch.length > 0 ? `<p>${carrerasMatch.join(', ')}</p>` : ''}
                 </div>
             `;
         }
@@ -94,14 +94,25 @@ function renderFacultyPage() {
                 <h2>${facultad.nombre}</h2>
                 <p><strong>Ciudad:</strong> ${facultad.ciudad}</p>
 
-                <h3>Carreras Disponibles</h3>
-                <ul class="carreras-list">
-                    ${facultad.carreras.map(carrera => `<li>${carrera}</li>`).join('')}
-                </ul>
+                <section>
+                    <h3>Carreras disponibles</h3>
+                    <ul class="carreras-list">
+                        ${facultad.carreras.map(carrera => `<li>${carrera}</li>`).join('')}
+                    </ul>
+                </section>
 
-                <h3>Ubicación</h3>
-                <div id="map" class="map-container"></div>
-                <p class="map-coords">Coordenadas: ${facultad.coordenadas.lat}, ${facultad.coordenadas.lng}</p>
+                <section>
+                    <h3>Ubicación</h3>
+                    <div id="map" class="map-container"></div>
+                    <p class="map-coords">Coordenadas: ${facultad.coordenadas.lat}, ${facultad.coordenadas.lng}</p>
+                </section>
+
+                <section>
+                    <h3>Materias</h3>
+                    <div class="materias-empty">
+                        <p>Próximamente se cargarán las materias desde la base de datos.</p>
+                    </div>
+                </section>
             </div>
         `;
 

@@ -140,7 +140,7 @@
                 const btn = document.createElement('button');
                 btn.className = 'faculty-data-btn';
                 btn.dataset.faculty = key;
-                btn.textContent = facultad.sigla + ' ▼';
+                btn.textContent = facultad.sigla;
                 btn.onclick = () => toggleFacultyMenu(key);
                 facultyButtonsDiv.appendChild(btn);
                 
@@ -153,7 +153,6 @@
                     const menuItem = document.createElement('div');
                     menuItem.className = 'faculty-menu-item';
                     menuItem.textContent = carrera;
-                    menuItem.onclick = () => window.location.href = `${key}.html?view=info`;
                     menu.appendChild(menuItem);
                 });
                 
