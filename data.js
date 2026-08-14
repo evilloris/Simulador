@@ -3,13 +3,13 @@ const facultades = {
         nombre: "Facultad de Ciencias Agrícolas",
         sigla: "FCA",
         carreras: ["Biología", "Ciencias Ambientales", "Ingeniería Agronómica", "Ingeniería Agrícola (Montero)", "Ingeniería Forestal"],
-        coordenadas: { lat: -17.7833, lng: -63.1833 }
+        coordenadas: { lat: -17.69882162747343, lng: -63.148052003358195 }
     },
     "ciencias-contables": {
         nombre: "Facultad de Ciencias Contables, Auditoría, Sistemas de Control de Gestión y Finanzas",
         sigla: "FCCASCGF",
         carreras: ["Contaduría Pública", "Información y Control de Gestión"],
-        coordenadas: { lat: -17.7833, lng: -63.1833 }
+        coordenadas: { lat: -17.7764025443528, lng: -63.19666129217552 }
     },
     "ciencias-economicas": {
         nombre: "Facultad de Ciencias Económicas y Empresariales",
