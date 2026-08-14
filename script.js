@@ -68,6 +68,9 @@ function searchCarreras() {
 }
 
 function getCurrentFacultyKey() {
+    const bodyKey = document.body && document.body.dataset && document.body.dataset.facultyKey;
+    if (bodyKey && facultades[bodyKey]) return bodyKey;
+
     const path = window.location.pathname.split('/').pop() || 'index.html';
     if (!path || path === 'index.html') return null;
 
@@ -76,9 +79,14 @@ function getCurrentFacultyKey() {
 
 function renderFacultyPage() {
     const facultyKey = getCurrentFacultyKey();
-    const content = document.querySelector('.content') || document.getElementById('faculty-page-content');
+    const content = document.getElementById('faculty-page-content') || document.querySelector('.content');
 
-    if (!facultyKey || !content || !facultades[facultyKey]) return;
+    if (!facultyKey || !content || !facultades[facultyKey]) {
+        if (content) {
+            content.innerHTML = '<p>No se pudo cargar la información de esta facultad.</p>';
+        }
+        return;
+    }
 
     const facultad = facultades[facultyKey];
     const params = new URLSearchParams(window.location.search);
